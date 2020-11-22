@@ -7,12 +7,12 @@ TimeView.setup = function (el) {
     this.leftTimeEl = el.querySelector('.header__time__left');
     this.showLeftTime(0);
     this.leftTime = 0;
-
+    this.initialTime = 0;
     return this
 }
 
 TimeView.renderGameData = function (time) {
-  this.leftTime = time;
+  this.initialTime = this.leftTime = time;
   this.showLeftTime(this.leftTime);
 
   discountLeftTime = setInterval(() => {
@@ -38,7 +38,7 @@ TimeView.renderInitialDate = function () {
 TimeView.getLeftTime = function() {
 
   return new Promise(res => {
-    res(this.leftTime);
+    res(this.initialTime - this.leftTime);
   })
 }
 
