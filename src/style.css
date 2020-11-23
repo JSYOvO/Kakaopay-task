@@ -1,7 +1,7 @@
 .main, .result {
     display: flex;
     flex-direction: column;
-    background-color: tomato;
+    background-color: white;
     align-items: center;
     height: 100vh;
     justify-content: center;
@@ -71,7 +71,7 @@
     border-radius: 10px;
     width: 80%;
     height: 20%;
-    background-color: turquoise;
+    background-color: #46A1F8;
     outline: none;
     color: white;
     font-size: large;
@@ -86,39 +86,46 @@
 }
 
 input:focus::-webkit-input-placeholder {
-  color: turquoise;
+    color: #46A1F8;
+    text-shadow: none;
 }
 input:focus::-moz-placeholder {
-  color: turquoise;
+    color: #46A1F8;
+    text-shadow: none;
 }
 input:focus:-ms-input-placeholder {
-  color: turquoise;
+    color: #46A1F8;
+    text-shadow: none;
 }
 input:focus::-ms-input-placeholder {
-  color: turquoise;
+    color: #46A1F8;
+    text-shadow: none;
 }
 
 .game > p {
     border: none;
     width: 40%;
     height: 20%;
-    background-color: turquoise;
+    background-color: #46A1F8;
     color: white;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .reset__button {
     border: none;
     width: 30%;
     height: 8%;
-    background-color: turquoise;
+    background-color: #46A1F8;
     color: white;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: large;
+    cursor: pointer;
+
 }

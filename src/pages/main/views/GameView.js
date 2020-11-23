@@ -4,6 +4,7 @@ let gameStartToggle = false;
 
 GameView.setup = function (el) {
     this.init(el);
+    this.gameStartToggle = false;
     this.gameWordEl = el.querySelector('h1');
     this.gameButtonEl = el.querySelector('p');
     this.gameinputEl = el.querySelector('input');
@@ -25,8 +26,8 @@ GameView.showGameWord = function(word) {
   this.gameWordEl.innerHTML = word;
 }
 
-GameView.ButtonToogle = function(gameStartToggle) {
-  if(gameStartToggle) this.gameButtonEl.innerHTML = "초기화";
+GameView.ButtonToogle = function(toggle) {
+  if(toggle) this.gameButtonEl.innerHTML = "초기화";
   else this.gameButtonEl.innerHTML = "시작";
 }
 GameView.bindEvents = function() {
@@ -34,19 +35,22 @@ GameView.bindEvents = function() {
   this.gameinputEl.addEventListener('keyup', e => this.onKeyup(e))
 }
 GameView.onClickButton = function() {
-  gameStartToggle = !gameStartToggle;
+  this.gameStartToggle = !this.gameStartToggle;
 
-  if(gameStartToggle) this.emit('@gameStart');
+  if(this.gameStartToggle) this.emit('@gameStart');
   else this.emit('@gameStop');
 
-  this.ButtonToogle(gameStartToggle);
+  this.ButtonToogle(this.gameStartToggle);
 }
 
 GameView.onKeyup = function (e) {
   const enter = 13;
   if (e.keyCode !== enter) return ;
   this.emit('@submit', {input: this.gameinputEl.value});
-  this.gameinputEl.value = "";
+  this.clearInput();
 }
 
+GameView.clearInput = function () {
+  this.gameinputEl.value = "";
+}
 export default GameView;

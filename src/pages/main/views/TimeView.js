@@ -1,9 +1,9 @@
 import View from './View.js'
 const TimeView = Object.create(View)
-let discountLeftTime;
 
 TimeView.setup = function (el) {
     this.init(el)
+    this.discountLeftTime = 0;
     this.leftTimeEl = el.querySelector('.header__time__left');
     this.showLeftTime(0);
     this.leftTime = 0;
@@ -15,12 +15,12 @@ TimeView.renderGameData = function (time) {
   this.initialTime = this.leftTime = time;
   this.showLeftTime(this.leftTime);
 
-  discountLeftTime = setInterval(() => {
+  this.discountLeftTime = setInterval(() => {
     this.leftTime--;
     this.showLeftTime(this.leftTime);
     
     if(this.leftTime == 0) {
-      clearInterval(discountLeftTime);
+      clearInterval(this.discountLeftTime);
       this.emit('@timeout');
     }
   }, 1000)
@@ -31,7 +31,7 @@ TimeView.showLeftTime = function (leftTime) {
 }
 
 TimeView.renderInitialDate = function () {
-  clearInterval(discountLeftTime);
+  clearInterval(this.discountLeftTime);
   this.showLeftTime(0);
 }
 

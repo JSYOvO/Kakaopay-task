@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[DataModel] fetch data test 1`] = `
+Array [
+  Object {
+    "second": 10,
+    "text": "hello",
+  },
+  Object {
+    "second": 10,
+    "text": "world",
+  },
+  Object {
+    "second": 8,
+    "text": "this",
+  },
+  Object {
+    "second": 3,
+    "text": "is",
+  },
+  Object {
+    "second": 15,
+    "text": "kakaopay",
+  },
+  Object {
+    "second": 5,
+    "text": "we",
+  },
+  Object {
+    "second": 5,
+    "text": "are",
+  },
+  Object {
+    "second": 15,
+    "text": "kakaopay",
+  },
+  Object {
+    "second": 15,
+    "text": "frontend",
+  },
+  Object {
+    "second": 20,
+    "text": "developers",
+  },
+  Object {
+    "second": 15,
+    "text": "join",
+  },
+  Object {
+    "second": 10,
+    "text": "us",
+  },
+]
+`;
