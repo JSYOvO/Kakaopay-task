@@ -35,10 +35,10 @@ TimeView.renderInitialDate = function () { // 남은시간 0으로 초기화
   this.showLeftTime(0);
 }
 
-TimeView.getElapsedTime = function() { // 컨트롤러에서 문제를 푸는데 경과시간을 요청시 반환
+TimeView.getElapsedTime = function(initialTime = this.initialTime, leftTime = this.leftTime) { // 컨트롤러에서 문제를 푸는데 경과시간을 요청시 반환
 
   return new Promise(res => {
-    res(this.initialTime - this.leftTime);
+    res(initialTime - leftTime);
   })
 }
 

@@ -7,6 +7,7 @@ import './style.css';
 
 document.addEventListener('DOMContentLoaded', () => {
     const pages = [
+        { page: Main, path: '' },
         { page: Main, path: 'main' },
         { page: Result, path: 'result' },
     ];

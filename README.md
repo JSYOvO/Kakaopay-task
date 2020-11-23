@@ -1,7 +1,8 @@
 # Kakaopay - Typing Game (타자게임)
   주어진 단어가 표시되면 input에 단어를 정재신 시간 내에 입력하여 점수를 획득하는 어플리케이션 개발
   
-## 1. 과제 요구사항 및 해결전략
+
+## 과제 요구사항 및 해결전략
 + webpack 환경을 구성
 
   + webpack-dev-server 환경구성
@@ -120,16 +121,23 @@
             this.app = document.querySelector('.app');
             this.solve = 0, this.avg = 0, this.page = pages;
             
-            // 윈도우의 hash가 변경되거나, 페이지가 Relaod되면 해시값애 매핑되는 페이지 호출
+            // 윈도우의 hash가 변경되거나, 페이지가 Relaod되면 해시 값에 매핑되는 페이지 호출
             window.onhashchange = () => { this.loadPage(this.page); } 
             if(window.PerformanceNavigation.TYPE_RELOAD){ this.loadPage(this.page); }
           }
           loadPage(page){
-            this.nowPage = window.location.hash.replace('#',''); // 변경되거나 Reload된 현재의 해시값 확인
-            const matchPage = page.find((el) => el.path === this.nowPage); // 확인한 해시와 매핑되는 페이지 확인
+            // 변경되거나 Reload된 현재의 해시값 확인
+            this.nowPage = window.location.hash.replace('#',''); 
+
+            // 확인한 해시와 매핑되는 페이지 확인
+            const matchPage = page.find((el) => el.path === this.nowPage); 
             const toRenderPage = matchPage.page;
-            const currentPage = new toRenderPage({router : this}); // 매핑되는 페이지 객체 생성
-            this.app.innerHTML = currentPage.render(); // 매핑되는 페이지 객체의 render 함수 호출
+
+            // 매핑되는 페이지 객체 생성
+            const currentPage = new toRenderPage({router : this}); 
+
+            // 매핑되는 페이지 객체의 render 함수 호출
+            this.app.innerHTML = currentPage.render(); 
             currentPage.mount(this.solve, this.avg);
           }
         }
@@ -157,7 +165,7 @@
    
    + Jest 환경구성
       ```
-      $ npm i -D jest jest-fetch-mock babel-jest @babel/core @babel/preset-env
+      $ npm i -D jest jest-fetch-mock babel-jest @babel/core @babel/preset-env 
       
       [setupJest.js]
         require('jest-fetch-mock').enableMocks()
@@ -185,7 +193,7 @@
       [DataModel.test.js]
       import DataModel from './DataModel';
       
-      // DataModel.js에서 Fetch를 통해 서버로 부터 받아온 데이터가 정상적인지 확인하는 테스트 진행
+      // DataModel.js에서 Fetch를 통해 서버로 받아온 데이터가 정상적인지 확인하는 테스트 진행
       test("[DataModel] fetch data test", () => {
           return DataModel.getList()
           .then(data => {

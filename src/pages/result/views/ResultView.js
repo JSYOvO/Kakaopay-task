@@ -1,5 +1,5 @@
 import View from './View.js'
-const ResultView = Object.create(View) // 개암결과 사용자에게 전달하기 위한 뷰
+const ResultView = Object.create(View) // 게임결과 사용자에게 전달하기 위한 뷰
 
 ResultView.setup = function (el, totalScroe, avgTime) {
     this.init(el)
