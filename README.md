@@ -75,6 +75,7 @@
        ├── index.html
        ├── index.js - main, result 페이지 라우팅
        ├── Router.js - 라우팅 객체 선언
+       ├── test.js - test파일
        ├── style.css
        └── pages
               ├── main - 기본 게임페이지
@@ -188,9 +189,9 @@
         }
       ```
       
-   + 테스트 파일 구성 (예시 : DataModel.test.js)
+   + 테스트 파일 구성 
       ```
-      [DataModel.test.js]
+      [test.js]
       import DataModel from './DataModel';
       
       // DataModel.js에서 Fetch를 통해 서버로 받아온 데이터가 정상적인지 확인하는 테스트 진행
