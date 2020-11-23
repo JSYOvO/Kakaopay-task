@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
         { page: Main, path: 'main' },
         { page: Result, path: 'result' },
     ];
+    // Main, Result Component와 대응하는 Routing 주소를 매핑하여 페이지 구성
     
-    const router = new Router({ pages });
-    router.push('main');
+    const router = new Router({ pages }); // 구성한 페이지로 Router 객체 생성
+    router.push('main'); // 해쉬주소 #main으로 기본 Routing 주소 선언
     
 })

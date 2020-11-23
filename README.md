@@ -72,30 +72,30 @@
    [디렉토리 구조]
      src
        ├── index.html
-       ├── index.js
-       ├── Router.js
+       ├── index.js - main, result 페이지 라우팅
+       ├── Router.js - 라우팅 객체 선언
        ├── style.css
        └── pages
-              ├── main
-              │     ├── main.js
+              ├── main - 기본 게임페이지
+              │     ├── main.js - 라우팅으로 호출되며 게임페이지 render
               │     ├── controllers
-              │     │       └── MainController.js
+              │     │       └── MainController.js - 모델로부터 데이터를 요구하고, 그 결과를 뷰로 전달
               │     ├── models
-              │     │       └── DataModel.js
+              │     │       └── DataModel.js - 서버로부터 게임데이터를 받아 컨트롤러에 전달
               │     └── views
-              │             ├── GameView.js
-              │             ├── ScoreView.js
-              │             ├── TimeView.js
-              │             └── View.js
+              │             ├── GameView.js - 페이지 중앙의 게임화면을 사용자에게 전달
+              │             ├── ScoreView.js - 페이지 상단의 획득점수를 사용자에게 전달
+              │             ├── TimeView.js - 페이지 상단의 남은시간을 사용자에게 전달
+              │             └── View.js - 뷰 생성 및 관리를 위한 기본파일
               │     
-              └── result
-                    ├── result.js
+              └── result - 결과페이지
+                    ├── result.js - 라우팅으로 호출되며 결과페이지 render
                     ├── controllers
-                    │       └── MainController.js
+                    │       └── MainController.js - 모델로부터 데이터를 요구하고, 그 결과를 뷰로 전달
                     └── views
-                            ├── ResetView.js
-                            ├── ResultView.js
-                            └── View.js
+                            ├── ResetView.js - 리셋버튼을 사용자에게 전달
+                            ├── ResultView.js - 게임결과를 사용자에게 전달
+                            └── View.js - 뷰 생성 및 관리를 위한 기본파일
    ```
     
 + 게임 화면과 완료 화면은 Routing을 통하여 이동한다. (Router 클래스를 직접 구현)
@@ -107,11 +107,9 @@
             { page: Main, path: 'main' },
             { page: Result, path: 'result' },
         ];
-
-        const router = new Router({ pages });
-      
         // Main, Result Component와 대응하는 Routing 주소를 매핑하여 페이지 구성
-        // 구성한 페이지로 Router 객체 생성
+
+        const router = new Router({ pages }); // 구성한 페이지로 Router 객체 생성
       ```
       
    + Routing 객체 생성
@@ -207,7 +205,7 @@
      
 + 단어는 서버에 요청하여 받아 온다.
 
-  + 비동기 방식으로 서버에서 받은 데이터 반환
+  + 서버에 요청하여 받은 데이터 비동기 방식으로 반환
       ```
       [DataModel.js]
         getList() { 

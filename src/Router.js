@@ -25,8 +25,9 @@ class Router {
     }
 
     push(pageName, solve, avg) {
-      this.solve = solve ? solve : this.solve;
-      this.avg = avg ? avg : this.avg;
+      this.solve = solve ? solve : 0;
+      this.avg = avg ? avg : 0;
+       // 만일 push 호출시 solve, avg 데이터가 넘어오면 해당정보를 활용하여 페이지 랜더링 진행
       
       window.location.hash = pageName; // 윈도우 해쉬주소를 위에서 선언한 주소로 변경
     }
